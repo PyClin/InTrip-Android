@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="100dp"
+            tools:context=".ui.home.MainActivity">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/homepage_illustration" />
+
+            <com.minosai.stellarhack.utils.ui.LoadingView
+                android:id="@+id/homeWalletLoadingView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <LinearLayout
+                android:id="@+id/homeWalletContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="24dp"
+                    android:text="Current Balance" />
+
+                <TextView
+                    android:id="@+id/homeWalletBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="16dp"
+                    android:text="₹1000"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="32sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/homeChipRefresh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Refresh"
+                        app:chipBackgroundColor="?android:textColorPrimaryInverse"
+                        app:chipIcon="@drawable/ic_baseline_refresh_24"
+                        app:chipStrokeWidth="0.5dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/homeChipDeposit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Deposit"
+                        app:chipBackgroundColor="?android:textColorPrimaryInverse"
+                        app:chipIcon="@drawable/ic_baseline_add_24"
+                        app:chipStrokeWidth="0.5dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/homeChipClaim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Claim"
+                        app:chipBackgroundColor="?android:textColorPrimaryInverse"
+                        app:chipIcon="@drawable/ic_baseline_arrow_downward_24"
+                        app:chipStrokeWidth="0.5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/homeLayoutDeposit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/homeWalletDepositInput"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:layout_weight="1"
+                        android:hint="Enter Amount"
+                        app:prefixText="₹ ">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/homeWalletDepositButton"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="Deposit"
+                        android:textAllCaps="false" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="16dp"
+                android:background="?android:attr/listDivider" />
+
+            <com.minosai.stellarhack.utils.ui.LoadingView
+                android:id="@+id/homeTicketLoadingView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <LinearLayout
+                android:id="@+id/homeTicketContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="16dp"
+                        android:text="History"
+                        android:textSize="24sp" />
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/homeChipSync"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="16dp"
+                        android:text="Sync"
+                        android:textColor="@color/design_default_color_primary"
+                        app:chipBackgroundColor="?android:textColorPrimaryInverse"
+                        app:chipIcon="@drawable/ic_baseline_sync_24"
+                        app:chipIconTint="@color/design_default_color_primary"
+                        app:chipStrokeColor="@color/design_default_color_primary"
+                        app:chipStrokeWidth="0.5dp" />
+
+                    <LinearLayout
+                        android:id="@+id/homeLayoutSyncLoading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
+                        <ProgressBar
+                            android:layout_width="24dp"
+                            android:layout_height="24dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="16dp"
+                            android:text="Syncing..." />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/homeTicketRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/layout_ticket" />
+
+
+            </LinearLayout>
+
+            <!--            <com.google.android.material.button.MaterialButton-->
+            <!--                android:id="@+id/buttonPassenger"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                android:layout_margin="16dp"-->
+            <!--                android:text="passenger" />-->
+
+            <!--            <com.google.android.material.button.MaterialButton-->
+            <!--                android:id="@+id/buttonConductor"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                android:layout_margin="16dp"-->
+            <!--                android:text="conductor" />-->
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/homeTicketActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_margin="16dp"
+        android:text="Buy Ticket"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:cornerRadius="100dp"
+        app:icon="@drawable/ic_baseline_add_24" />
+
+</FrameLayout>

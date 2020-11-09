@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.skyfishjy.library.RippleBackground
+            android:id="@+id/ticketLoadingRipple"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:gravity="center"
+            app:rb_color="?colorPrimary"
+            app:rb_duration="3000"
+            app:rb_radius="32dp"
+            app:rb_rippleAmount="3"
+            app:rb_scale="5">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_stellar" />
+
+        </com.skyfishjy.library.RippleBackground>
+
+        <TextView
+            android:id="@+id/ticketLoadingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="24sp"
+            android:text="Loading..."/>
+
+    </LinearLayout>
+
+</FrameLayout>
